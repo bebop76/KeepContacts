@@ -7,12 +7,11 @@ import Container from 'react-bootstrap/Container';
 import Popup from "../components/Popup";
 
 const SaveList = (props) => {
-  const [fileNames, setFileNames] = useState({
+  const fileNames = {
     json: "contatti.json",
-  })
+  }
   const [selectedFile, setSelectedFile] = useState()
   const [pick, setPick] = useState(false)
-  const [filesdat, setFilesdat] = useState("");
   const [mess, setMess] = useState("")
 
  
@@ -42,7 +41,6 @@ function download ()  {
         let res  = []
         try {
           res = JSON.parse(fileReader.result)
-          setFilesdat(res)
           props.setContatti(res);
           setMess("Contatti importati con successo")
           props.funzione(true)
